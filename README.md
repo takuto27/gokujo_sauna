@@ -1,24 +1,30 @@
-# README
+# 極上サウナ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+全国のサウナのレビュー、ランキングを見れます
 
-Things you may want to cover:
+### サイトテーマ
+サウナのレビューサイト・ランキング一覧
 
-* Ruby version
+### テーマを選んだ理由
+自分自身サウナが元々好きなのですが、本物のサウナーたちはサウナの種類やサウナ内の温度、水風呂の温度といったいろいろな種類の中でこだわりがあり、それをサウナーたちで共有し合いレビューし自分に合った行きたいサウナを見つけることを目的とし自分も参考にしてサウナに行きたいという気持ちがあり制作しようと思いました。
 
-* System dependencies
+### ターゲットユーザ
+サウナー、サウナに興味のある人
 
-* Configuration
+### 主な利用シーン
+サウナに行きたいと思った時どんなサウナがおすすめか、どんな種類のサウナがあるか確認できるサイト
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
