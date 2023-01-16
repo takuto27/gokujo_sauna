@@ -1,8 +1,8 @@
 class Public::PostsController < ApplicationController
 
   def index
+    #@posts = Post.where(customer_id: current_customer.id)
     @posts = Post.all
-    @saunas = Sauna.all
   end
 
   def new
@@ -13,6 +13,17 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @sauna = Sauna.find(params[:id])
+    @post_comment = PostComment.new
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Post.find(params[:id])
+    post.update(post_params)
+    redirect_to post_path(post.id)
   end
 
   def create

@@ -4,7 +4,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @customers = @customer.posts
-    @post = Post.new
+    @post = @customer.posts
   end
 
   def index
