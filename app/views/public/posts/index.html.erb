@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="m-md-2"><br></div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <h4 class="col-md-2 mx-auto text-center">
+      <strong>投稿一覧</strong>
+    </h4>
+
+    <div class="col-md-8"></div>
+  </div>
+
+  <div class="m-md-2"><br></div>
+
+  <% @posts.each do |post| %>
+  <% @saunas.each do |sauna| %>
+
+    <div class="form_group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"></div>
+      <div class="col-md-8"><%= sauna.sauna_name %></div>
+    </div>
+
+    <div class="form_group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"></div>
+      <div class="col-md-8"><%= sauna.access %></div>
+    </div>
+
+
+    <div class="form_group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+      <%= link_to post_path(post.id) do %>
+        <%= image_tag sauna.image, size: '200x250', class:"card-img-top" %>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"></div>
+      <div class="col-md-8"><%= post.title %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"></div>
+      <div class="col-md-8"><%= post.body %></div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
+
+
+

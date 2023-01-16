@@ -1,0 +1,54 @@
+<h4>
+  <strong>サウナ詳細</strong>
+</h4>
+
+<div class="m-md-2"><br></div>
+
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <%= image_tag sauna.image, size:'300x300' %>
+    </div>
+  <div class="col-md-7 mx-auto">
+    <table class="information">
+      <tr>
+        <th>店舗名</th>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= sauna.sauna_name %></td>
+      </tr>
+
+      <td class="m-md-1"><br></td>
+
+      <tr>
+        <th>店舗紹介</th>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= sauna.introduction %></td>
+      </tr>
+
+      <td class="m-md-1"><br></td>
+
+      <tr>
+        <th>アクセス</th>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= sauna.access %></td>
+      </tr>
+
+      <td class="m-md-1"><br></td>
+
+      <tr>
+        <th>サウナ温度</th>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= sauna.sauna_temperature %></td>
+      </tr>
+
+
+      <td class="m-md-1"><br></td>
+
+      <tr>
+        <th>水風呂温度</th>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= sauna.water_temperature %></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>

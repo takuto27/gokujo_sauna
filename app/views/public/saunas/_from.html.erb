@@ -1,0 +1,18 @@
+<% saunas.each do |sauna| %>
+  <%= link_to sauna_path(sauna.id) do %>
+    <div class="col-4">
+      <div class="card m-1">
+        <%= link_to sauna_path(sauna.id) do %>
+          <%= image_tag sauna.image, size: '200x200', class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <P class="card-title"><%= sauna.sauna_name %></P>
+          <P class="card-title"><%= sauna.access %></P>
+          <P class="card-title">サウナ温度　<%= sauna.sauna_temperature %>度</P>
+          <P class="card-title">水風呂温度　<%= sauna.water_temperature %>度</P>
+          <P class="card-text"><%= sauna.introduction %></P>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
