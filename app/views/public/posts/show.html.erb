@@ -23,7 +23,7 @@
       <div class="form_group row">
         <div class="col-md-3"></div>
         <div class="col-md-1 text-left"><%= f.label :title, '店舗名' %></div>
-        <div class="col-md-8"><%= Sauna.find(params[:id]).sauna_name %></div>
+        <div class="col-md-8"><%= @post.sauna.sauna_name %></div>
         <%= f.hidden_field :sauna_id, :value => params[:id] %>
       </div>
     <% end %>
@@ -55,10 +55,10 @@
   <% end %>
 
     <div id="comments_area_">
-      <%= render "public/post_comments/index", post: @post %>
+      <%= render "public/post_comments/index", post_comments: @post_comments %>
     </div>
     <div class="text_area">
-      <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+      <%= render "public/post_comments/form", {post: @post, post_comment: @post_comment} %>
     </div>
 
 </div>

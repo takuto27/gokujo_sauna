@@ -12,8 +12,8 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @sauna = Sauna.find(params[:id])
     @post_comment = PostComment.new
+    @post_comments = PostComment.where(post_id: params[:id])
   end
 
   def edit
@@ -42,7 +42,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :sauna_id)
+    params.require(:post).permit(:title, :body, :sauna_id,)
   end
 
 end
