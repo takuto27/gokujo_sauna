@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="m-md-2"><br></div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <h4 class="col-md-2 mx-auto text-center">
+      <strong>サウナ新規登録</strong>
+    </h4>
+
+    <div class="col-md-8"></div>
+  </div>
+
+  <div class="m-md-2"><br></div>
+
+  <%= form_with model: @sauna, url: admin_saunas_path do |f| %>
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :image, '店舗画像' %></div>
+      <div class="col-md-8"><%= f.file_field :image, accept: "image/*", required: true %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :sauna_name, '店舗名' %></div>
+      <div class="col-md-8"><%= f.text_field :sauna_name, placeholder: "店舗名", required: true, size: "44" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :access, 'アクセス' %></div>
+      <div class="col-md-8"><%= f.text_field :access, placeholder: "ここにアクセスを記述します", required: true, size: "44" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :introduction, '紹介文' %></div>
+      <div class="col-md-8"><%= f.text_area :introduction, placeholder: "ここに紹介文を記述します", required: true, size: "46x10" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :sauna_temperature, 'サウナ温度' %></div>
+      <div class="col-md-8"><%= f.text_field :sauna_temperature, placeholder: "サウナ温を記入", required: true, size: "44" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :water_temperature, '水風呂温度' %></div>
+      <div class="col-md-8"><%= f.text_field :water_temperature, placeholder: "水風呂温度を記入", required: true, size: "44" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-2 text-left">ステータス</div>
+    <div class="col-md-7">
+        <%= f.radio_button :is_active, true %>
+        <%= f.label :is_active, '表示中' %>
+
+        <%= f.radio_button :is_active, false %>
+        <%= f.label :is_active, '非表示中' %>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="action center-block mx-auto">
+      <%= f.submit '新規登録', class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

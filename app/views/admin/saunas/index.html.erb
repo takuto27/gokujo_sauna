@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="m-md-2"><br>
+  <div class="row">
+    <h4 class="col-md-2 mx-auto text-center" style="background-color:#DDD">
+      <strong>サウナ一覧</strong>
+    </h4>
+    <div class="col-md-5 mx-auto text-right">
+      <%= link_to "+", new_admin_sauna_path, class: 'btn btn-outline-secondary rounded-circle p-0　box-shadow' %>
+    </div>
+  </div>
+
+  <diV class="m-md-2"><br></diV>
+
+  <div class="row">
+
+    <div class="col-md-1 mx-auto text-left">
+      <strong>サウナID</strong>
+    </div>
+    <div class="col-md-2 mx-auto text-left">
+      <strong>店舗名</strong>
+    </div>
+    <div class="col-md-2 mx-auto text-left">
+      <strong>紹介文</strong>
+    </div>
+    <div class="col-md-2 mx-auto text-left">
+      <strong>アクセス</strong>
+    </div>
+    <div class="col-md-1 mx-auto text-left">
+      <strong>サウナ温度</strong>
+    </div>
+    <div class="col-md-1 mx-auto text-left">
+      <strong>水風呂温度</strong>
+    </div>
+    <div class="col-md-2 mx-auto text-left">
+      <strong>ステータス</strong>
+    </div>
+  </div>
+
+  <% @saunas.each do |sauna| %>
+
+  <diV class="m-md-1"><br></diV>
+  <div class="row">
+
+    <div class="col-md-1 mx-auto text-left"><%= sauna.id %>
+      <div class="col-md-1"><br></div>
+    </div>
+    <div class="col-md-2 mx-auto text-left"><%= link_to sauna.sauna_name, admin_sauna_path(sauna.id) %>
+      <div class="col-md-1"><br></div>
+    </div>
+    <div class="col-md-2 mx-auto text-left"><%= sauna.introduction%>
+      <div class="col-md-1"><br></div>
+    </div>
+    <div class="col-md-2 mx-auto text-left"><%= sauna.access %>
+      <div class="col-md-1"><br></div>
+    </div>
+    <div class="col-md-1 mx-auto text-left"><%= sauna.sauna_temperature %>
+      <div class="col-md-1"><br></div>
+    </div>
+    <div class="col-md-1 mx-auto text-left"><%= sauna.water_temperature %>
+      <div class="col-md-1"><br></div>
+    </div>
+    <% if sauna.is_active == true %>
+      <div class="col-md-2 mx-auto text-left text-success">
+        <strong><%= '表示中' %></strong>
+      </div>
+    <% else %>
+      <div class="col-md-2 mx-auto text-left text-secondary">
+        <strong><%= '非表示中' %></strong>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+
+  <!--ページネーション追加-->
+</div>
+</div>
+

@@ -1,0 +1,15 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'public/customers/info', customer: current_customer %>
+    </div>
+
+    <div class="col-9 d-flex flex-column">
+      <%= render 'sauna', sauna: @sauna %>
+      <%= link_to new_post_path(id: @sauna.id) do %>
+        レビューする
+      <% end %>
+    </div>
+  </div>
+</div>
