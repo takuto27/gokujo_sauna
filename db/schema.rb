@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2023_01_16_065853) do
 
   create_table "saunas", force: :cascade do |t|
     t.string "sauna_name", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.string "sauna_temperature", null: false
     t.string "water_temperature", null: false
     t.string "access", null: false
