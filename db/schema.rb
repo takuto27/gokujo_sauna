@@ -57,8 +57,6 @@ ActiveRecord::Schema.define(version: 2023_01_16_065853) do
     t.integer "sauna_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_bookmarks_on_customer_id"
-    t.index ["sauna_id"], name: "index_bookmarks_on_sauna_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -83,21 +81,17 @@ ActiveRecord::Schema.define(version: 2023_01_16_065853) do
     t.boolean "is_deleted", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_post_comments_on_customer_id"
-    t.index ["post_id"], name: "index_post_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "sauna_id", null: false
+    t.integer "sauna_", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.integer "favorite", null: false
     t.boolean "is_deleted", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_posts_on_customer_id"
-    t.index ["sauna_id"], name: "index_posts_on_sauna_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -126,10 +120,4 @@ ActiveRecord::Schema.define(version: 2023_01_16_065853) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookmarks", "customers"
-  add_foreign_key "bookmarks", "saunas"
-  add_foreign_key "post_comments", "customers"
-  add_foreign_key "post_comments", "posts"
-  add_foreign_key "posts", "customers"
-  add_foreign_key "posts", "saunas"
 end
