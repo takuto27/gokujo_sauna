@@ -5,7 +5,7 @@ class CreateSaunas < ActiveRecord::Migration[6.1]
 
       #t.references :tag, null: false, foreign_key: true
       t.string :sauna_name, null: false
-      t.text :introduction, null: false, default: ""
+      t.text :introduction, null: false
       t.string :sauna_temperature, null: false
       t.string :water_temperature, null: false
       t.string :access, null: false
