@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     resources :saunas
     resources :customers, except: [:new,:create,:destroy]
-    resources :posts, only: [:index,:show,] do
+    resources :posts, only: [:index,:show,:edit,:update] do
       member do
         get :customer
         patch :withdraw
