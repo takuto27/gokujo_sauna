@@ -1,0 +1,13 @@
+<% customers.each do |customer| %>
+<table class='table'>
+  <tr><%= image_tag customer.get_profile_image, size:'100x100' %></tr>
+  <tr>
+    <th>name</th>
+    <th><%= link_to customer_path(customer.id) do %><%= customer.name %><% end %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= customer.introduction %></th>
+  </tr>
+</table>
+<% end %>

@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="m-md-2"><br></div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <h4 class="col-md-2 mx-auto text-center">
+      <strong>投稿</strong>
+    </h4>
+
+    <div class="col-md-8"></div>
+  </div>
+
+  <div class="m-md-2"><br></div>
+
+
+  <%= form_for(@post, url: {controller: 'admin/posts', action: 'update'}) do |f| %>
+
+
+    <% if params[:id].present? %>
+      <div class="form_group row">
+        <div class="col-md-3"></div>
+        <div class="col-md-1 text-left"><%= f.label :title, '店舗名' %></div>
+        <div class="col-md-8"><%= Sauna.find(params[:id]).sauna_name %></div>
+        <%= f.hidden_field :sauna_id, :value => params[:id] %>
+      </div>
+    <% end %>
+
+      <div class="form_group row">
+        <div class="col-md-3"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4"><%= image_tag @post.sauna.image, size: '200x250', class:"card-img-top" %></div>
+      </div>
+
+    <br>
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :title, 'タイトル' %></div>
+      <div class="col-md-8"><%= f.text_field :title, placeholder: "タイトル", required: true, size: "43" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :body, 'レビュー' %></div>
+      <div class="col-md-8"><%= f.text_area :body, placeholder: "感想を記入", required: true, size: "46x10" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-1"></div>
+      <div class="col-md-2 text-left">表示ステータス</div>
+      <div class="col-md-4">
+        <%= f.radio_button :is_deleted, false %>
+        <%= f.label :is_deleted, '表示　' %>
+
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted, '非表示　' %>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+
+    <div class="row">
+      <div class="action center-block mx-auto">
+      <%= f.submit '変更する', class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>

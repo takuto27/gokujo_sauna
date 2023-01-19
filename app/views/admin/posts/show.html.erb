@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="m-md-2"><br></div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <h4 class="col-md-2 mx-auto text-center">
+      <strong>投稿詳細</strong>
+    </h4>
+
+    <div class="col-md-8"></div>
+  </div>
+
+  <div class="m-md-2"><br></div>
+
+  <%= form_with model: @post, url: posts_path do |f| %>
+
+  　<div class="form_group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left">投稿者</div>
+      <div class="col-md-8"><%= link_to admin_customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %></div>
+    </div>
+
+    <% if params[:id].present? %>
+      <div class="form_group row">
+        <div class="col-md-3"></div>
+        <div class="col-md-1 text-left"><%= f.label :title, '店舗名' %></div>
+        <div class="col-md-8"><%= @post.sauna.sauna_name %></div>
+        <%= f.hidden_field :sauna_id, :value => params[:id] %>
+      </div>
+    <% end %>
+
+      <div class="form_group row">
+        <div class="col-md-3"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4"><%= image_tag @post.sauna.image, size: '200x250', class:"card-img-top" %></div>
+      </div>
+
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :title, 'タイトル' %></div>
+      <div class="col-md-8"><%= @post.title %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :body, 'レビュー' %></div>
+      <div class="col-md-8"><%= @post.body %></div>
+    </div>
+
+    <div class="col-md-1"></div>
+      <div class="col-md-2 mx-auto text-left">表示ステータス</div>
+      <div class="col-md-4 mx-auto text-left">
+        <% if @post.is_deleted == false %>
+          <div class="text-success" >
+            <%= '表示' %>
+          </div>
+        <% else %>
+          <div class="text-secondary" >
+            <%= '非表示' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
+
+    <div class="row">
+      <div class="action center-block mx-auto">
+      <%= link_to '編集する',edit_admin_post_path(@post), class: 'btn btn-success' %>
+      </div>
+    </div>
+
+  <% end %>
+
+    <div id="comments_area_">
+      <%= render "public/post_comments/index", post_comments: @post_comments %>
+    </div>
+    <div class="text_area">
+      <%= render "public/post_comments/form", {post: @post, post_comment: @post_comment} %>
+    </div>
+
+</div>
