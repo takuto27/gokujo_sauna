@@ -16,7 +16,7 @@
   　<div class="form_group row">
       <div class="col-md-3"></div>
       <div class="col-md-1 text-left">投稿者</div>
-      <div class="col-md-8"><%= link_to customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %></div>
+      <div class="col-md-8"><%= link_to admin_customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %></div>
     </div>
 
     <% if params[:id].present? %>
@@ -47,13 +47,28 @@
       <div class="col-md-8"><%= @post.body %></div>
     </div>
 
-    <% if @post.customer == current_customer %>
+    <div class="col-md-1"></div>
+      <div class="col-md-2 mx-auto text-left">表示ステータス</div>
+      <div class="col-md-4 mx-auto text-left">
+        <% if @post.is_deleted == false %>
+          <div class="text-success" >
+            <%= '表示' %>
+          </div>
+        <% else %>
+          <div class="text-secondary" >
+            <%= '非表示' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
+
     <div class="row">
       <div class="action center-block mx-auto">
-      <%= link_to '編集する',edit_post_path(@post), class: 'btn btn-success' %>
+      <%= link_to '編集する',edit_admin_post_path(@post), class: 'btn btn-success' %>
       </div>
     </div>
-    <% end %>
+
   <% end %>
 
     <div id="comments_area_">

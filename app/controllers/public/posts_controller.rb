@@ -3,6 +3,7 @@ class Public::PostsController < ApplicationController
   def index
     #@posts = Post.where(customer_id: current_customer.id)
     @posts = Post.all
+    #@posts = Post.where(is_deleted: false)
   end
 
   def new
@@ -29,7 +30,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-    @post.is_deleted = false
+    #@post.is_deleted = false
     @post.favorite = 3
     if @post.save
       redirect_to post_path(@post)

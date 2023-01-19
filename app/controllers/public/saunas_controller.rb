@@ -2,7 +2,7 @@ class Public::SaunasController < ApplicationController
 
   def index
     #@tags = Tag.all
-    @saunas = Sauna.where(is_active: true).page(params[:page]).per(8) #8項目毎にページネート
+    @saunas = Sauna.all.where(is_active: true).page(params[:page]).per(8) #8項目毎にページネート
     #@all_saunas = Sauna.all..where(is_active: true)
   end
 
