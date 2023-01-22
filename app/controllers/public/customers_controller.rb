@@ -4,7 +4,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @customers = @customer.posts
-    @post = @customer.posts
+    @posts = @customer.posts.where(is_deleted: false)
   end
 
   def index

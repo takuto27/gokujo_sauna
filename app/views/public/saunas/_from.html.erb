@@ -6,10 +6,12 @@
           <%= image_tag sauna.image, size: '200x200', class:"card-img-top" %>
         <% end %>
         <div class="card-body">
-          <P class="card-title"><%= sauna.sauna_name %></P>
-          <P class="card-title"><%= sauna.access %></P>
-          <P class="card-title">サウナ温度　<%= sauna.sauna_temperature %>度</P>
-          <P class="card-title">水風呂温度　<%= sauna.water_temperature %>度</P>
+          <div class="card-text">
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate">店舗名:<%= sauna.sauna_name %></div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate">アクセス:<%= sauna.access %></div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate">サウナ温度:<%= sauna.sauna_temperature %>度</div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate">水風呂温度:<%= sauna.water_temperature %>度</div>
+          </div>
         </div>
       </div>
     </div>

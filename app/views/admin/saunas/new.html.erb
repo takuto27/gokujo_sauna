@@ -24,6 +24,10 @@
       <div class="col-md-8"><%= f.text_field :sauna_name, placeholder: "店舗名", required: true, size: "44" %></div>
     </div>
 
+    <%= form_for @area, method: :post do |f| %>
+      <%= f.select :prefecture, Area.areas.keys, {} %>
+    <% end %>
+
     <div class="form-group row">
       <div class="col-md-3"></div>
       <div class="col-md-1 text-left"><%= f.label :access, 'アクセス' %></div>

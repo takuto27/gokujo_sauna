@@ -1,0 +1,33 @@
+<% posts.each do |post| %>
+    <div class="col-4">
+      <div class="card m-1">
+        <div class="card-header">
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate">店舗名:<%= link_to admin_sauna_path(post.sauna.id) do %><%= post.sauna.sauna_name %><% end %></div>
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate">アクセス:<%= post.sauna.access %></div>
+        </div>
+        <%= link_to posts_path(post.id) do %>
+        <%= link_to admin_post_path(post.id) do %>
+          <%= image_tag post.sauna.image, size: '200x200', class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <div class="card-text">
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate">投稿者:<%= link_to admin_customer_path(post.customer.id) do %><%= post.customer.name %><% end %></div>
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate">タイトル:<%= post.title %></div>
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate">レビュー:<%= post.body %></div>
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate">
+          <% if post.is_deleted == false %>
+          <div class="text-success" >
+            <%= '表示中' %>
+          </div>
+          <% else %>
+            <div class="text-secondary" >
+              <%= '非表示中' %>
+            </div>
+          <% end %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

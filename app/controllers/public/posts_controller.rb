@@ -2,8 +2,8 @@ class Public::PostsController < ApplicationController
 
   def index
     #@posts = Post.where(customer_id: current_customer.id)
-    @posts = Post.all
-    #@posts = Post.where(is_deleted: false)
+    #@posts = Post.all
+    @posts = Post.all.where(is_deleted: false)
   end
 
   def new

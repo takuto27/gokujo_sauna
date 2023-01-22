@@ -44,7 +44,7 @@ class Admin::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :sauna_id,)
+    params.require(:post).permit(:title, :body, :sauna_id, :is_deleted)
   end
 
 end

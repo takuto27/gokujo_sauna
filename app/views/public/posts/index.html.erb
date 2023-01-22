@@ -1,60 +1,10 @@
-<div class="container">
-  <div class="m-md-2"><br></div>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <h4 class="col-md-2 mx-auto text-center">
-      <strong>投稿一覧</strong>
-    </h4>
-
-    <div class="col-md-8"></div>
+<div class='container px-5 px-sm-0'>
+  <h4>投稿一覧</h4>
+  <div class='row'>
+  <div class="col-12 d-flex flex-column">
+    <div class="d-flex flex-row flex-wrap">
+      <%= render 'from', posts: @posts %>
+    </div>
   </div>
-
-  <div class="m-md-2"><br></div>
-
-  <% @posts.each do |post| %>
-
-    <div class="form_group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-1 text-left"></div>
-      <div class="col-md-8">投稿者　　<%= link_to customer_path(post.customer.id) do %><%= post.customer.name %><% end %></div>
-    </div>
-
-    <div class="form_group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-1 text-left"></div>
-      <div class="col-md-8">店舗名　　<%= link_to sauna_path(post.sauna.id) do %><%= post.sauna.sauna_name %><% end %></div>
-    </div>
-
-    <div class="form_group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-1 text-left"></div>
-      <div class="col-md-8">アクセス　　<%= post.sauna.access %></div>
-    </div>
-
-
-    <div class="form_group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-1"></div>
-      <div class="col-md-4">
-      <%= link_to post_path(post.id) do %>
-        <%= image_tag post.sauna.image, size: '200x250', class:"card-img-top" %>
-      <% end %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-1 text-left"></div>
-      <div class="col-md-8">タイトル<br><%= post.title %></div>
-    </div>
-
-    <div class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-1 text-left"></div>
-      <div class="col-md-8">感想<br><%= post.body %></div>
-    </div>
-  <% end %>
+  </div>
 </div>
-
-
-
