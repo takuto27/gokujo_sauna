@@ -10,6 +10,7 @@
       <%= link_to new_post_path(id: @sauna.id) do %>
         レビューする
       <% end %>
+      <%= render 'public/bookmarks/btn', sauna: @sauna %>
     </div>
   </div>
 </div>

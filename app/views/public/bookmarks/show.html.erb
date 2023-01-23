@@ -1,0 +1,32 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'public/customers/info', customer: current_customer %>
+    </div>
+    <div class="col-9 d-flex flex-column">
+      <h5 class="m-3"><strong>ブックマーク一覧</strong></h5>
+      <div class="d-flex flex-row flex-wrap">
+      <% @bookmarks.each do |bookmark| %>
+        <%= link_to sauna_path(bookmark.sauna.id) do %>
+          <div class="col-4">
+            <div class="card m-1">
+              <%= link_to sauna_path(bookmark.sauna.id) do %>
+                <%= image_tag bookmark.sauna.image, size: '200x200', class:"card-img-top" %>
+              <% end %>
+              <div class="card-body">
+                <div class="card-text">
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">店舗名:<%= bookmark.sauna.sauna_name %></div>
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">アクセス:<%= bookmark.sauna.access %></div>
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">サウナ温度:<%= bookmark.sauna.sauna_temperature %>度</div>
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">水風呂温度:<%= bookmark.sauna.water_temperature %>度</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

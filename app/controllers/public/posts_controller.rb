@@ -3,7 +3,15 @@ class Public::PostsController < ApplicationController
   def index
     #@posts = Post.where(customer_id: current_customer.id)
     #@posts = Post.all
-    @posts = Post.all.where(is_deleted: false)
+    #@posts = Post.all.where(is_deleted: false)
+    if params[:latest]
+      @posts = Post.latest
+    elsif params[:rate_count]
+      @books = Post.rate_count
+    else
+      @posts = Post.all.where(is_deleted: false)
+    end
+    @book = Post.new
   end
 
   def new
@@ -43,7 +51,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :sauna_id,)
+    params.require(:post).permit(:title, :body, :sauna_id, :rate)
   end
 
 end

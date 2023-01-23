@@ -1,0 +1,22 @@
+<table>
+  <tbody>
+      <% post_comments.each do |post_comment| %>
+      <tr>
+        <td>
+          <%= link_to customer_path(post_comment.customer) do %>
+            <%= image_tag post_comment.customer.get_profile_image, size: "80x80" %><br>
+            <%= post_comment.customer.name %>
+          <% end %>
+        </td>
+        <td><%= post_comment.comment %></td>
+        <td>
+          <% if post_comment.is_deleted == false %>
+            <%= link_to "非表示", hide_admin_post_comment_path(post_comment.post,post_comment), method: :patch, class: "btn btn-outline-danger btn-sm", remote: true %>
+          <% else %>
+            <%= link_to "表示", display_admin_post_comment_path(post_comment.post,post_comment), method: :patch, class: "btn btn-outline-danger btn-sm", remote: true %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

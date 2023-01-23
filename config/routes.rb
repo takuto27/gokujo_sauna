@@ -21,8 +21,9 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     resources :posts
     resources :post_comments, only: [:create, :destroy]
-    resources :saunas, only: [:index, :show]
-    resource :bookmarks, only: [:create, :destroy]
+    resources :saunas, only: [:index, :show] do
+      resource :bookmarks, only: [:show, :create, :destroy]
+    end
     resource :relationships, only: [:create, :destroy]
      get 'followings' => 'relationships#followings', as: 'followings'
      get 'followers' => 'relationships#followers', as: 'followers'
@@ -39,13 +40,18 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     resources :saunas
     resources :customers, except: [:new,:create,:destroy]
+    resources :post_comments, only: [] do
+      member do
+        patch :hide
+        patch :display
+      end
+    end
     resources :posts, only: [:index,:show,:edit,:update] do
       member do
         get :customer
         patch :withdraw
       end
     end
-    resources :order_details, only: [:update]
   end
 
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

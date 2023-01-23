@@ -4,12 +4,10 @@ class Admin::SaunasController < ApplicationController
   def index
     @saunas = Sauna.all.page(params[:page]).per(10) #10項目毎にページネート
     @sauna = Sauna.new
-    #@tags = Tag.all
   end
 
   def new
     @sauna = Sauna.new
-    @tag = Tag.all
   end
 
   def create
@@ -36,7 +34,7 @@ class Admin::SaunasController < ApplicationController
   private
 
   def sauna_params
-    params.require(:sauna).permit(:tag_id, :sauna_name, :image, :sauna_temperature, :water_temperature, :access, :phone_number, :introduction, :is_active )
+    params.require(:sauna).permit(:tag_id, :sauna_name, :image, :sauna_temperature, :water_temperature, :access, :phone_number, :introduction, :is_active, :prefecture).merge(prefecture: params[:sauna][:prefecture].to_i)
   end
 
 end
