@@ -10,9 +10,16 @@
   <div class="m-md-2"><br></div>
 
     <%= form_with model: @sauna, url: admin_sauna_path(@sauna) do |f| %>
+
     <div class="form-group row">
       <div class="col-md-3"></div>
-      <div class="col-md-1 text-left"><%= f.label :image, 'サウナ画像' %></div>
+      <div class="col-md-1 text-left">都道府県</div>
+      <div class="col-md-8"><%= f.select :prefecture,  options_for_select(Sauna.prefectures), {prompt: "選択してください"}, class: "prefecture-select" %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left"><%= f.label :image, '店舗画像' %></div>
       <div class="col-md-8"><%= f.file_field :image, accept: "image/*", required: true %></div>
     </div>
 

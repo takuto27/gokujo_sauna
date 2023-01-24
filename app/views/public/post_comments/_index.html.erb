@@ -2,7 +2,7 @@
   <tbody>
       <% post_comments.each do |post_comment| %>
       <tr>
-
+        <% if post_comment.is_deleted == false %>
         <td>
           <%= link_to customer_path(post_comment.customer) do %>
             <%= image_tag post_comment.customer.get_profile_image, size: "80x80" %><br>
@@ -16,6 +16,7 @@
           <% end %>
         </td>
       </tr>
+        <% end %>
       <% end %>
   </tbody>
 </table>

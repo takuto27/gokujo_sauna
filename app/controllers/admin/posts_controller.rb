@@ -1,6 +1,5 @@
 class Admin::PostsController < ApplicationController
   def index
-    #@posts = Post.where(customer_id: current_customer.id)
     @posts = Post.all
   end
 
@@ -44,7 +43,7 @@ class Admin::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :sauna_id, :is_deleted)
+    params.require(:post).permit(:title, :body, :sauna_id, :is_deleted, :rate)
   end
 
 end

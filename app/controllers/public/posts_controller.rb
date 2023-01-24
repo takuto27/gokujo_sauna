@@ -1,17 +1,14 @@
 class Public::PostsController < ApplicationController
 
   def index
-    #@posts = Post.where(customer_id: current_customer.id)
-    #@posts = Post.all
-    #@posts = Post.all.where(is_deleted: false)
     if params[:latest]
       @posts = Post.latest
     elsif params[:rate_count]
-      @books = Post.rate_count
+      @posts = Post.rate_count
     else
       @posts = Post.all.where(is_deleted: false)
     end
-    @book = Post.new
+    @post = Post.new
   end
 
   def new

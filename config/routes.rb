@@ -40,17 +40,20 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     resources :saunas
     resources :customers, except: [:new,:create,:destroy]
-    resources :post_comments, only: [] do
-      member do
-        patch :hide
-        patch :display
-      end
-    end
+    # resources :post_comments, only: [] do
+    #   member do
+    #     patch "hide/:comment_id" => "post_comments#hide", as: 'hide'
+    #     patch :display
+    #   end
+    # end
     resources :posts, only: [:index,:show,:edit,:update] do
       member do
         get :customer
         patch :withdraw
       end
+      
+      patch "hide/:comment_id" => "post_comments#hide", as: 'hide'
+      patch "display/:comment_id" => "post_comments#display", as: 'display'
     end
   end
 

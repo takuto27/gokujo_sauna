@@ -11,9 +11,9 @@
         <td><%= post_comment.comment %></td>
         <td>
           <% if post_comment.is_deleted == false %>
-            <%= link_to "非表示", hide_admin_post_comment_path(post_comment.post,post_comment), method: :patch, class: "btn btn-outline-danger btn-sm", remote: true %>
+            <%= link_to "非表示にする", admin_post_hide_path(post_comment.post,post_comment), method: :patch, class: "btn btn-outline-danger btn-sm", remote: true %>
           <% else %>
-            <%= link_to "表示", display_admin_post_comment_path(post_comment.post,post_comment), method: :patch, class: "btn btn-outline-danger btn-sm", remote: true %>
+            <%= link_to "表示する", admin_post_display_path(post_comment.post,post_comment), method: :patch, class: "btn btn-outline-success btn-sm", remote: true %>
           <% end %>
         </td>
       </tr>

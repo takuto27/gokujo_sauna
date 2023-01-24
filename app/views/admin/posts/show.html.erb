@@ -19,6 +19,16 @@
       <div class="col-md-8"><%= link_to admin_customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %></div>
     </div>
 
+    <div class="m-2"></div>
+
+    <div class="form_group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left">都道府県</div>
+      <div class="col-md-8"><%= @post.sauna.prefecture %></div>
+    </div>
+
+    <div class="m-2"></div>
+
     <% if params[:id].present? %>
       <div class="form_group row">
         <div class="col-md-3"></div>
@@ -28,12 +38,19 @@
       </div>
     <% end %>
 
-      <div class="form_group row">
-        <div class="col-md-3"></div>
-        <div class="col-md-1"></div>
-        <div class="col-md-4"><%= image_tag @post.sauna.image, size: '200x250', class:"card-img-top" %></div>
-      </div>
+    <div class="form_group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4"><%= image_tag @post.sauna.image, size: '200x250', class:"card-img-top" %></div>
+    </div>
 
+    <div class="m-2"></div>
+
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left">評価</div>
+      <div class="col-md-8"><%= render "static_rate", post: @post %></div>
+    </div>
 
     <div class="form-group row">
       <div class="col-md-3"></div>
@@ -47,9 +64,10 @@
       <div class="col-md-8"><%= @post.body %></div>
     </div>
 
-    <div class="col-md-1"></div>
-      <div class="col-md-2 mx-auto text-left">表示ステータス</div>
-      <div class="col-md-4 mx-auto text-left">
+    <div class="form-group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-2 text-left">表示ステータス</div>
+      <div class="col-md-3">
         <% if @post.is_deleted == false %>
           <div class="text-success" >
             <%= '表示中' %>
@@ -60,7 +78,6 @@
           </div>
         <% end %>
       </div>
-      <div class="col-md-5"></div>
     </div>
 
     <div class="row">
@@ -71,7 +88,12 @@
 
   <% end %>
 
-    <div id="comments_area_">
-      <%= render "admin/post_comments/index", post_comments: @post_comments %>
+  <div class="form-group row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div id="comments_area_">
+          <%= render "admin/post_comments/index", post_comments: @post_comments %>
+        </div>
+      </div>
     </div>
 </div>
