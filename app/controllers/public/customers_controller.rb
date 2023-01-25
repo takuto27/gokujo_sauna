@@ -8,7 +8,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.where(is_deleted: false).page(params[:page]).per(6)
     @post = Post.new
   end
 

@@ -1,13 +1,17 @@
 <% customers.each do |customer| %>
-<table class='table'>
-  <tr><%= image_tag customer.get_profile_image, size:'100x100' %></tr>
-  <tr>
-    <th>name</th>
-    <th><%= link_to customer_path(customer.id) do %><%= customer.name %><% end %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= customer.introduction %></th>
-  </tr>
-</table>
+  <%= link_to customer_path(customer.id) do %>
+    <div class="col-4">
+      <div class="card m-1">
+        <%= link_to customer_path(customer.id) do %>
+          <%= image_tag customer.get_profile_image, size:'200x200', class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <div class="card-text">
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate">name: <%= customer.name %></div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate">introduction: <%= customer.introduction %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
