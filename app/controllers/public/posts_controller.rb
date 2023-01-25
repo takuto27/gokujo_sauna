@@ -6,7 +6,7 @@ class Public::PostsController < ApplicationController
     elsif params[:rate_count]
       @posts = Post.rate_count
     else
-      @posts = Post.all.where(is_deleted: false)
+      @posts = Post.all.where(is_deleted: false).page(params[:page]).per(6)
     end
     @post = Post.new
   end

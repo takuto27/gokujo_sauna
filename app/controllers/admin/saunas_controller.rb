@@ -2,7 +2,7 @@ class Admin::SaunasController < ApplicationController
 
 
   def index
-    @saunas = Sauna.all.page(params[:page]).per(10) #10項目毎にページネート
+    @saunas = Sauna.all.page(params[:page]).per(8) #8項目毎にページネート
     @sauna = Sauna.new
   end
 

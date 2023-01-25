@@ -70,7 +70,4 @@ gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
 
-gem 'ransack'
-gem 'jp_prefecture'
-
 gem 'enum_help'

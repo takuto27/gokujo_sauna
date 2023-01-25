@@ -16,16 +16,19 @@
               <% end %>
               <div class="card-body">
                 <div class="card-text">
-                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">店舗名:<%= bookmark.sauna.sauna_name %></div>
-                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">アクセス:<%= bookmark.sauna.access %></div>
-                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">サウナ温度:<%= bookmark.sauna.sauna_temperature %>度</div>
-                  <div class="mb-1 text-nowrap overflow-hidden text-truncate">水風呂温度:<%= bookmark.sauna.water_temperature %>度</div>
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-map-marker-alt"></i> <%= bookmark.sauna.prefecture %></div>
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-store"></i> <%= bookmark.sauna.sauna_name %></div>
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-map"></i> <%= bookmark.sauna.access %></div>
+                  <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-fire-alt"></i> <%= bookmark.sauna.sauna_temperature %>℃　<i class="fas fa-tint"></i> <%= bookmark.sauna.water_temperature %>℃</div>
                 </div>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
+      <div class="col-md-2 mx-auto text-left">
+        <%= paginate @bookmarks %>
+      </div>
     </div>
     </div>
   </div>

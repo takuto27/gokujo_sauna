@@ -5,9 +5,12 @@
       <%= render 'admin/customers/info', customer: @customer %>
     </div>
     <div class="col-9 d-flex flex-column">
-      <h4><%= @customer.name %>さんの<br>投稿一覧</h4>
+      <h4><%= @customer.name %>さんの投稿一覧</h4>
       <div class="d-flex flex-row flex-wrap">
         <%= render 'admin/posts/from', posts: @posts %>
+      </div>
+      <div class="col-md-2 mx-auto text-left">
+        <%= paginate @posts %>
       </div>
     </div>
   </div>

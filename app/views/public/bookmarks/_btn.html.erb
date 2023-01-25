@@ -1,5 +1,5 @@
 <% if sauna.bookmarked_by?(current_customer) %>
-  <td><%= link_to "ブックマークを外す", sauna_bookmarks_path(sauna), method: :delete %></td>
+  <td><%= link_to sauna_bookmarks_path(sauna), method: :delete do %><i class="fas fa-bookmark"></i><% end %></td>
 <% else %>
-  <td><%= link_to "ブックマーク", sauna_bookmarks_path(sauna), method: :post %></td>
+  <td><%= link_to sauna_bookmarks_path(sauna), method: :post do %><i class="far fa-bookmark"></i><% end %></td>
 <% end %>

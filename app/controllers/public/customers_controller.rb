@@ -4,7 +4,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @customers = @customer.posts
-    @posts = @customer.posts.where(is_deleted: false)
+    @posts = @customer.posts.where(is_deleted: false).page(params[:page]).per(6)
   end
 
   def index
@@ -28,7 +28,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :introduction, :profile_image)
+    params.require(:customer).permit(:name, :introduction, :profile_image, :rate)
   end
 
   def ensure_correct_user

@@ -5,7 +5,12 @@
       <%= render 'public/customers/info', customer: current_customer %>
     </div>
   <div class="col-9 d-flex flex-column">
+    <h2>サウナ一覧</h2>
     <div class="d-flex flex-row flex-wrap">
       <%= render 'from', saunas: @saunas %>
     </div>
+    <div class="col-md-2 mx-auto text-left">
+      <%= paginate @saunas %>
+    </div>
   </div>
+

@@ -2,8 +2,8 @@
   <div class="col-4">
     <div class="card m-1">
       <div class="card-header">
-        <div class="mb-1 text-nowrap overflow-hidden text-truncate">店舗名:<%= link_to sauna_path(post.sauna.id) do %><%= post.sauna.sauna_name %><% end %></div>
-        <div class="mb-1 text-nowrap overflow-hidden text-truncate">アクセス:<%= post.sauna.access %></div>
+        <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-store"></i> <%= link_to sauna_path(post.sauna.id) do %><%= post.sauna.sauna_name %><% end %></div>
+        <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-map"></i> <%= post.sauna.access %></div>
       </div>
       <%= link_to posts_path(post.id) do %>
         <%= link_to post_path(post.id) do %>
@@ -11,7 +11,8 @@
         <% end %>
       <div class="card-body">
         <div class="card-text">
-          <div class="mb-1 text-nowrap overflow-hidden text-truncate">投稿者:<%= link_to customer_path(post.customer.id) do %><%= post.customer.name %><% end %></div>
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate"><%= render "public/posts/static_rate", post: post %></div>
+          <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-user-alt"></i> <%= link_to customer_path(post.customer.id) do %><%= post.customer.name %><% end %></div>
           <div class="mb-1 text-nowrap overflow-hidden text-truncate">タイトル:<%= post.title %></div>
           <div class="mb-1 text-nowrap overflow-hidden text-truncate">レビュー:<%= post.body %></div>
         </div>

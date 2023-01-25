@@ -1,7 +1,6 @@
 class Sauna < ApplicationRecord
   #has_many :tag, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :areas, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_one_attached :image
 
@@ -27,4 +26,36 @@ class Sauna < ApplicationRecord
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
+
+  def self.looks(word, prefecture, search)
+
+    if search == "perfect_match"
+      if prefecture.blank?
+        @sauna = Sauna.where("sauna_name LIKE?","#{word}")
+      else
+        @sauna = Sauna.where("sauna_name LIKE?","#{word}").where(prefecture:  Sauna.prefectures.key(prefecture.to_i))
+      end
+    elsif search == "forward_match"
+      if prefecture.blank?
+        @sauna = Sauna.where("sauna_name LIKE?","#{word}%")
+      else
+        @sauna = Sauna.where("sauna_name LIKE?","#{word}%").where(prefecture:  Sauna.prefectures.key(prefecture.to_i))
+      end
+    elsif search == "backward_match"
+      if prefecture.blank?
+        @sauna = Sauna.where("sauna_name LIKE?","%#{word}")
+      else
+        @sauna = Sauna.where("sauna_name LIKE?","%#{word}").where(prefecture:  Sauna.prefectures.key(prefecture.to_i))
+      end
+    elsif search == "partial_match"
+      if prefecture.blank?
+        @sauna = Sauna.where("sauna_name LIKE?","%#{word}%")
+      else
+        @sauna = Sauna.where("sauna_name LIKE?","%#{word}%").where(prefecture:  Sauna.prefectures.key(prefecture.to_i))
+      end
+    else
+        @sauna = Sauna.all
+    end
+
+  end
 end

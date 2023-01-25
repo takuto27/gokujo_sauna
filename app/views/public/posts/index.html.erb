@@ -5,6 +5,9 @@
     <div class="d-flex flex-row flex-wrap">
       <%= render 'from', posts: @posts %>
     </div>
+    <div class="col-md-2 mx-auto text-left">
+      <%= paginate @posts %>
+    </div>
   </div>
   </div>
 </div>

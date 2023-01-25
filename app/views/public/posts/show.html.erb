@@ -19,6 +19,12 @@
       <div class="col-md-8"><%= link_to customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %></div>
     </div>
 
+    <div class="form_group row">
+      <div class="col-md-3"></div>
+      <div class="col-md-1 text-left">都道府県</div>
+      <div class="col-md-8"><%= @post.sauna.prefecture %></div>
+    </div>
+
     <% if params[:id].present? %>
       <div class="form_group row">
         <div class="col-md-3"></div>

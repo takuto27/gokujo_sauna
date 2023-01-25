@@ -1,0 +1,22 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'public/customers/info', customer: current_customer %>
+    </div>
+    
+    <div class="col-9 d-flex flex-column">
+      <div class="d-flex flex-row flex-wrap">
+        <%= render 'public/saunas/from', saunas: @saunas %>
+      </div>
+    </div>
+
+  <!--ページネーション追加-->
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2 mx-auto text-left">
+      <%= paginate @saunas %>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
+</div>

@@ -1,12 +1,12 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-    @all_customers = Customer.all.page(params[:page]).per(10) #10項目毎にページネート
+    @all_customers = Customer.all.page(params[:page]).per(8) #8項目毎にページネート
   end
 
   def show
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts
+    @posts = @customer.posts.all.page(params[:page]).per(6)
   end
 
   def edit

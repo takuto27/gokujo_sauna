@@ -2,7 +2,7 @@ class Public::BookmarksController < ApplicationController
   before_action :authenticate_customer!
 
   def show
-    @bookmarks = Bookmark.where(customer_id: current_customer.id)
+    @bookmarks = Bookmark.where(customer_id: current_customer.id).page(params[:page]).per(6)
     @sauna = Sauna.find(params[:sauna_id])
   end
 

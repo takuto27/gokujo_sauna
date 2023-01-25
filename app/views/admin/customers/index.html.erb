@@ -31,10 +31,10 @@
     <div class="col-md-1 mx-auto text-left"><%= customer.id %>
       <div class="col-md-1"><br></div>
     </div>
-    <div class="col-md-2 mx-auto text-left"><%= link_to customer.name, admin_customer_path(customer.id) %>
+    <div class="col-md-2 mx-auto text-left"><%= customer.name %>
       <div class="col-md-1"><br></div>
     </div>
-    <div class="col-md-1 mx-auto text-left">投稿一覧
+    <div class="col-md-1 mx-auto text-left"><%= link_to "投稿一覧", admin_customer_path(customer.id) %>
       <div class="col-md-1"><br></div>
     </div>
     <% if customer.is_deleted == false %>

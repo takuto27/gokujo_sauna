@@ -7,10 +7,10 @@
         <% end %>
         <div class="card-body">
           <div class="card-text">
-            <div class="mb-1 text-nowrap overflow-hidden text-truncate">店舗名:<%= sauna.sauna_name %></div>
-            <div class="mb-1 text-nowrap overflow-hidden text-truncate">アクセス:<%= sauna.access %></div>
-            <div class="mb-1 text-nowrap overflow-hidden text-truncate">サウナ温度:<%= sauna.sauna_temperature %>度</div>
-            <div class="mb-1 text-nowrap overflow-hidden text-truncate">水風呂温度:<%= sauna.water_temperature %>度</div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-map-marker-alt"></i> <%= sauna.prefecture %></div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-store"></i> <%= sauna.sauna_name %></div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-map"></i> <%= sauna.access %></div>
+            <div class="mb-1 text-nowrap overflow-hidden text-truncate"><i class="fas fa-fire-alt"></i> <%= sauna.sauna_temperature %>℃　<i class="fas fa-tint"></i> <%= sauna.water_temperature %>℃</div>
           </div>
         </div>
       </div>
