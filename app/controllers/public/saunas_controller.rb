@@ -1,4 +1,5 @@
 class Public::SaunasController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     #@tags = Tag.all

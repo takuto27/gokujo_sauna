@@ -1,7 +1,5 @@
 class Admin::PostCommentsController < ApplicationController
 
-
-
   def hide
     @comment = PostComment.find(params[:comment_id])
     @comment.update(is_deleted: true)
@@ -9,8 +7,6 @@ class Admin::PostCommentsController < ApplicationController
   end
 
   def display
-    #@comment = PostComment.find_by(id: params[:id])
-   # byebug
     PostComment.find_by(id: params[:comment_id]).update(is_deleted: false)
     redirect_to admin_post_path(params[:post_id])
   end

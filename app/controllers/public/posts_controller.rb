@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     if params[:latest]
@@ -43,6 +44,12 @@ class Public::PostsController < ApplicationController
       @posts = Post.all
       render "index"
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_path
   end
 
   private

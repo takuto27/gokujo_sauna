@@ -1,5 +1,5 @@
 class Admin::SaunasController < ApplicationController
-
+  before_action :authenticate_admin!
 
   def index
     @saunas = Sauna.all.page(params[:page]).per(8) #8項目毎にページネート

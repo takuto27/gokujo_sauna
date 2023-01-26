@@ -1,4 +1,5 @@
 class Admin::CustomersController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @all_customers = Customer.all.page(params[:page]).per(8) #8項目毎にページネート

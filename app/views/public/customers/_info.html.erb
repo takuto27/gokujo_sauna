@@ -11,14 +11,14 @@
 </table>
 
 <div class='row'>
-  <% if current_customer != customer %>
-    <td><%#= render "relationships/btn", customer: customer %></td>
-  <% else %>
-    <%= link_to edit_customer_path(customer), class: "btn btn-outline-secondary btn-block edit_customer_path" do %>
+
+  <% if current_customer.name != "guestcustomer" %>
+    <%= link_to edit_customer_path(customer), class: "btn btn-outline-secondary btn-block edit_customer_path_#{customer.id}" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
-    <%= link_to sauna_bookmarks_path(customer), class: "btn btn-info btn-block edit_customer_path" do %>
+    <%= link_to sauna_bookmarks_path(customer), class: "btn btn-info btn-block edit_customer_path_#{customer.id}" do %>
     　ブックマーク一覧
     <% end %>
   <% end %>
+
 </div>

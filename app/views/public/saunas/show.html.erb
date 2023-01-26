@@ -4,13 +4,14 @@
       <h2>User info</h2>
       <%= render 'public/customers/info', customer: current_customer %>
     </div>
-
     <div class="col-9 d-flex flex-column">
       <%= render 'sauna', sauna: @sauna %>
+      <% if current_customer.name != "guestcustomer" %>
       <%= link_to new_post_path(id: @sauna.id) do %>
         レビューする<i class="fas fa-edit"></i>
       <% end %>
       <%= render 'public/bookmarks/btn', sauna: @sauna %>
+      <% end %>
     </div>
   </div>
 </div>
