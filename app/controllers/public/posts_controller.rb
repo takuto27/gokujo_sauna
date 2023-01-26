@@ -41,7 +41,7 @@ class Public::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
-      @posts = Post.all
+      @posts = Post.page(params[:page]).per(6)
       render "index"
     end
   end
@@ -55,7 +55,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :sauna_id, :rate)
+    params.require(:post).permit(:title, :body, :rate).merge(sauna_id: params[:id])
   end
 
 end
