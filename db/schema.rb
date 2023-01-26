@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(version: 2023_01_24_104925) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "areas", force: :cascade do |t|
+  end
+
   create_table "bookmarks", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "sauna_id", null: false
