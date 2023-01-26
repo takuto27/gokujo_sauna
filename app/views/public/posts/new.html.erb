@@ -12,7 +12,7 @@
   <div class="m-md-2"><br></div>
 
 
-  <%= form_with model: @post, url: posts_path(id: params[:id]) do |f| %>
+  <%= form_with model: @post, url: posts_path do |f| %>
 
     <% if params[:id].present? %>
       <div class="form_group row">

@@ -55,7 +55,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :rate).merge(sauna_id: params[:id])
+    params.require(:post).permit(:title, :body, :rate, :sauna_id)
   end
 
 end
