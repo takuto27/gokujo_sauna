@@ -19,10 +19,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "search" => "searches#search"
+    get 'saunas_bookmarks' => 'bookmarks#show'
     resources :posts
     resources :post_comments, only: [:create, :destroy]
     resources :saunas, only: [:index, :show] do
-      resource :bookmarks, only: [:show, :create, :destroy]
+      resource :bookmarks, only: [:create, :destroy]
     end
     resource :relationships, only: [:create, :destroy]
      get 'followings' => 'relationships#followings', as: 'followings'

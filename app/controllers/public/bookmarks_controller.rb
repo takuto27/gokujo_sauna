@@ -3,7 +3,6 @@ class Public::BookmarksController < ApplicationController
 
   def show
     @bookmarks = Bookmark.where(customer_id: current_customer.id).page(params[:page]).per(6)
-    @sauna = Sauna.find(params[:sauna_id])
   end
 
   def create

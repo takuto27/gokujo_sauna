@@ -30,6 +30,7 @@ class Public::PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     post.update(post_params)
+    p post.errors
     redirect_to post_path(post.id)
   end
 
