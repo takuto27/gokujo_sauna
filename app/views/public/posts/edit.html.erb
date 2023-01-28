@@ -32,7 +32,21 @@
     <div class="form-group row">
       <div class="col-md-3"></div>
       <div class="col-md-1 text-left">評価</div>
-      <div class="col-md-8"><%= render "public/posts/static_rate", post: @post %></div>
+      <div class="col-md-4"><div id="post_raty"></div>
+        <script>
+          $(document).on('turbolinks:load', function() {
+          let raty_elem = document.querySelector('#post_raty');
+          raty_elem.innerHTML = ""
+          let option = {
+              starOn: "<%= asset_path('star-on.png') %>",
+              starOff: "<%= asset_path('star-off.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              scoreName: 'post[rate]',
+            };
+          raty(raty_elem,option);
+         });
+        </script>
+      </div>
     </div>
 
 
